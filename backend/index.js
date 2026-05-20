@@ -20,7 +20,7 @@ app.use(cookieParser());
 app.use("/api/auth",authRouter);
 app.use("/api/user",userRouter);
 app.use("/api/message",messageRouter);
-server.listen(8000, () => {
+server.listen(port, () => {
      connectDB()
   console.log("Server is running on port 8000");
 });
