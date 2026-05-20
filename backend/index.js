@@ -12,7 +12,7 @@ import { app, server } from "./socket/socket.js";
 // const app = express();
 const port=process.env.PORT||5000;
 app.use(cors({
-  origin:"http://localhost:5173",
+  origin:"https://realtimechatapp-egu5.onrender.com",
   credentials:true
 }))
 app.use(express.json());
