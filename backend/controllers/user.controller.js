@@ -19,7 +19,7 @@ export const editProfile=async(req,res)=>{
         let {name}=req.body;
         let image;
         if(req.file){
-            image=await uploadOnCloudinary(req.file.path)
+            image=await uploadOnCloudinary(req.buffer)
         }
         let user=await User.findByIdAndUpdate(req.userId,{name,image},{new:true})
         if(!user){
