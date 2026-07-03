@@ -10,7 +10,7 @@ export const sendMessage=async(req,res)=>{
         let {message}=req.body;
         let image;
         if(req.file){
-            image=await uploadOnCloudinary(req.file.path);
+            image=await uploadOnCloudinary(req.file.buffer);
         }
        let newMessage=await Message.create({
          sender,receiver,message,image
