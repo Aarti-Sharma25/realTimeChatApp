@@ -26,9 +26,9 @@ All AI features are triggered on-demand (button click) rather than automatically
 
 ## Tech Stack
 
-**Frontend:** React 19, Redux Toolkit, React Router, Tailwind CSS, Socket.io-client, Axios
+**Frontend:** React , Redux Toolkit, React Router, Tailwind CSS, Socket.io-client, Axios
 
-**Backend:** Node.js, Express 5, MongoDB (Mongoose), Socket.io, JWT, Multer, Cloudinary
+**Backend:** Node.js, Express , MongoDB (Mongoose), Socket.io, JWT, Multer, Cloudinary
 
 **AI/ML:** Google Gemini API (`gemini-3.6-flash` for generation, `gemini-embedding-001` for embeddings), MongoDB Atlas Vector Search
 
