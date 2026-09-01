@@ -131,7 +131,3 @@ npm run dev
 ---
 
 
-## Notes
-
-- Deployed on Render's free tier — the service spins down after inactivity, so the first request after idle time may take up to ~50 seconds.
-- Vector search requires a MongoDB Atlas cluster (not a local MongoDB instance).
