@@ -3,9 +3,15 @@ import express from "express"
 import { Server } from "socket.io";
 let app=express();
 const server=http.createServer(app);
-const io=new Server(server,{
-    cors:{
-        origin:"https://realtimechatapp-egu5.onrender.com"
+const allowedOrigins = [
+    "http://localhost:5173",
+    "https://realtimechatapp-egu5.onrender.com"
+];
+
+const io = new Server(server, {
+    cors: {
+        origin: allowedOrigins,
+        credentials: true
     }
 });
 const userMap={}

@@ -2,7 +2,7 @@ import uploadOnCloudinary from "../config/cloudinary.js";
 import Conversation from "../models/conversation.model.js";
 import Message from "../models/message.model.js";
 import { getReceiverSocketId, io } from "../socket/socket.js";
-
+import { generateEmbedding } from "../config/embedding.js";
 export const sendMessage=async(req,res)=>{
     try {
         let sender=req.userId;
@@ -12,8 +12,13 @@ export const sendMessage=async(req,res)=>{
         if(req.file){
             image=await uploadOnCloudinary(req.file.buffer);
         }
+        let embedding = await generateEmbedding(message); 
+        if (!embedding && message && message.trim().length > 0) {
+  console.log("⚠️ Warning: embedding generation failed for message, saving without it");
+} 
        let newMessage=await Message.create({
-         sender,receiver,message,image
+         sender,receiver,message,image,
+         embedding: embedding || undefined 
        })
        let conversation= await Conversation.findOne({
             participants:{$all:[sender,receiver]}

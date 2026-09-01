@@ -17,7 +17,12 @@ const messageSchema=new mongoose.Schema({
     image:{
         type:String,
         default:""
+    },
+     embedding:{                    // ✅ naya field
+        type:[Number],
+        default:undefined
     }
+
 
 },{timestamps:true})
 const Message=mongoose.model("Message",messageSchema);
