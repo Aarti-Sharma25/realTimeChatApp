@@ -2,8 +2,7 @@
 
 A real-time chat application built on the MERN stack, featuring live messaging via Socket.io and AI-powered features for smart replies, semantic search, and conversation summarization.
 
-**Live Demo:** [https://realtimechatapp-backend-lkmh.onrender.com](https://realtimechatapp-backend-lkmh.onrender.com)
-
+**Live Demo:** https://realtimechatapp-backend-lkmh.onrender.com
 ---
 
 ## Features
