@@ -10,11 +10,7 @@ cloudinary.config({
     api_secret: process.env.API_SECRET,
 });
 
-console.log("Cloudinary SDK config:", {
-    cloud_name: cloudinary.config().cloud_name,
-    api_key: !!cloudinary.config().api_key,
-    api_secret: !!cloudinary.config().api_secret
-});
+
 
 const uploadOnCloudinary = (buffer) => {
     return new Promise((resolve, reject) => {
