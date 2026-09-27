@@ -50,12 +50,10 @@ export const suggestReplies = async (req, res) => {
 };
 export const searchMessages = async (req, res) => {
   try {
-    // let sender = req.userId;
-    // let { receiver } = req.params;
-    // let { query } = req.body;
-     let sender = new mongoose.Types.ObjectId(req.userId);        // ✅ convert
+  
+     let sender = new mongoose.Types.ObjectId(req.userId);        
     let { receiver } = req.params;
-    let receiverId = new mongoose.Types.ObjectId(receiver);       // ✅ convert
+    let receiverId = new mongoose.Types.ObjectId(receiver);       
     let { query } = req.body;
     if (!query || query.trim().length === 0) {
       return res.status(400).json({ message: "Search query required" });
@@ -81,7 +79,7 @@ export const searchMessages = async (req, res) => {
       {
         $match: {
           $or: [
-            { sender: sender, receiver: receiverId },      // ✅ ab ObjectId se compare ho raha hai
+            { sender: sender, receiver: receiverId },      
             { sender: receiverId, receiver: sender }
           ]
         }
