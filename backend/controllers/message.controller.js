@@ -14,7 +14,7 @@ export const sendMessage=async(req,res)=>{
         }
         let embedding = await generateEmbedding(message); 
         if (!embedding && message && message.trim().length > 0) {
-  console.log("⚠️ Warning: embedding generation failed for message, saving without it");
+  console.log("Warning: embedding generation failed for message, saving without it");
 } 
        let newMessage=await Message.create({
          sender,receiver,message,image,
@@ -23,18 +23,18 @@ export const sendMessage=async(req,res)=>{
        let conversation= await Conversation.findOne({
             participants:{$all:[sender,receiver]}
        })
-        console.log("✅ Conversation found:", conversation);
+        console.log(" Conversation found:", conversation);
        if(!conversation){
         conversation=await Conversation.create({
             participants:[sender,receiver],
             messages:[newMessage._id]
         })
-        console.log("✅ Conversation created:", conversation._id);
+        console.log(" Conversation created:", conversation._id);
        }
         else{
             conversation.messages.push(newMessage._id);
             await conversation.save();
-            console.log("✅ Conversation updated");
+            console.log(" Conversation updated");
             
         }
         const receiverSocketId=getReceiverSocketId(receiver);
@@ -44,7 +44,7 @@ export const sendMessage=async(req,res)=>{
        
         return res.status(201).json(newMessage);
     } catch (error) {
-         console.log("❌ EXACT ERROR:", error.message); // ✅ paste what this prints
+         console.log("❌ EXACT ERROR:", error.message);
     console.log("❌ STACK:", error.stack);
         return res.status(500).json({message:`error :${error}`})
     }
